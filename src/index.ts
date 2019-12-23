@@ -2,7 +2,7 @@ import { interval, of, queueScheduler, defer, timer, SchedulerLike } from 'rxjs'
 import { delay, switchMap, tap, flatMap, map, repeat, delayWhen, concatMap, take } from 'rxjs/operators';
 import '@google/model-viewer';
 
-// v^v delay
+// delay
 export const createSpecialInterval = (number: number, scheduler ?: SchedulerLike ) => {
   return interval(0, scheduler).pipe(concatMap(v => of(v).pipe(delay(v * 1000, scheduler))), take(number));
 }
